@@ -1,0 +1,6 @@
+1) Make deck (vector); DONE(created a class with a vector instead)
+2) Make deck creation and shuffle functions; IN PROCESS: shuffle
+3) Make player (vector);
+4) Make stand, hit (this step includes transitioning of cards from deck to hand);
+5) Make value calculation (win condition);
+6) Make dealer (takes cards when his score is less than 17, then stops);

@@ -130,10 +130,14 @@
     <ClCompile Include="BlackJack.cpp" />
     <ClCompile Include="Cards.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Dealer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="Dealer.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,8 +8,8 @@
 int main()
 {
     Deck test;
-    test.create();
-    std::cout << "Hello World!\n";
+    test.draw();
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

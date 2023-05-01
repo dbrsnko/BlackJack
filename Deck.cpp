@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <random>
 #include "Deck.h"
 
 //objects declaration in order to fit them into deck later
@@ -61,12 +63,13 @@ Card ace_spades(A, SPADES);
 
 
 Deck::Deck() {
-
+	this->fill();
+	this->reshuffle();
 }
 
-void Deck::create() {
+void Deck::fill() {
 	deck.push_back(two_hearts); //since push_back actually copies the argument we can use those classes later 
-	deck.push_back(three_hearts);
+	deck.push_back(three_hearts); //to create deck
 	deck.push_back(four_hearts);
 	deck.push_back(five_hearts);
 	deck.push_back(six_hearts);
@@ -122,5 +125,9 @@ void Deck::create() {
 	deck.push_back(ace_spades);
 }
 void Deck::reshuffle() {
-
+	auto rng = std::default_random_engine{};
+	std::shuffle(std::begin(deck), std::end(deck), rng);
+}
+void Deck::draw() {
+	//std::cout << deck.front().; TODO
 }

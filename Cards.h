@@ -27,12 +27,12 @@ class Card {
 private:
 	int _suit; 
 	int _pip; 
-	int _value; //jack, queen, king are 10 points, ace is 1 or 11
-				//if (_value == A && _total_value + A > 21)
-				// _value = 1;
 public:
 	Card();
 	Card(int pip, int suit);
+	int getsuit();
+	int getpip();
+	
 
 };
 

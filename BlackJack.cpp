@@ -4,11 +4,36 @@
 #include <iostream>
 #include <vector>
 #include "Deck.h"
+#include "Player.h"
+#include "Game.h"
+#include "Dealer.h"
+
 
 int main()
 {
     Deck test;
-    test.draw();
+    Player player;
+    Dealer dealer;
+    //test.show_card();
+    //test.draw().getpip();
+    //std::cout << player.getscore() << "\n";
+    for (int i = 0; i < 52; i++) {
+      //  player.hit(test.draw());
+      // std::cout << player.getscore() << "\n";
+
+        if (dealer.logic())
+        {
+            dealer.hit(test.draw());
+            std::cout << dealer.getscore() << "\n";
+        }
+    }
+    //test.show_card();
+    //test.draw().getpip();
+  /* for (int i = 0; i<52; i++)
+    test.draw();*/
+    
+
+   
     
 }
 

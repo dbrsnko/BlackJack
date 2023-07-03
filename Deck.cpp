@@ -2,7 +2,9 @@
 #include <vector>
 #include <algorithm>
 #include <random>
+#include <time.h>
 #include "Deck.h"
+
 
 //objects declaration in order to fit them into deck later
 Card two_hearts(TWO, HEARTS);
@@ -68,8 +70,8 @@ Deck::Deck() {
 }
 
 void Deck::fill() {
-	deck.push_back(two_hearts); //since push_back actually copies the argument we can use those classes later 
-	deck.push_back(three_hearts); //to create deck
+	deck.push_back(two_hearts);   //since push_back copies the argument we can use those classes later 
+	deck.push_back(three_hearts); //to fill deck again
 	deck.push_back(four_hearts);
 	deck.push_back(five_hearts);
 	deck.push_back(six_hearts);
@@ -81,7 +83,7 @@ void Deck::fill() {
 	deck.push_back(queen_hearts);
 	deck.push_back(king_hearts);
 	deck.push_back(ace_hearts);
-
+	
 	deck.push_back(two_diamonds); 
 	deck.push_back(three_diamonds);
 	deck.push_back(four_diamonds);
@@ -125,9 +127,21 @@ void Deck::fill() {
 	deck.push_back(ace_spades);
 }
 void Deck::reshuffle() {
-	auto rng = std::default_random_engine{};
-	std::shuffle(std::begin(deck), std::end(deck), rng);
+	std::random_device rd;      
+	std::mt19937 g(rd());
+	std::shuffle(std::begin(deck), std::end(deck), g);
+	//might be a better option creating rd outside
+	//of function and passing it as a value
 }
-void Deck::draw() {
-	//std::cout << deck.front().; TODO
+Card Deck::draw() {
+	Card tmp = deck.front();
+	deck.erase(deck.begin());
+	return tmp;
+}
+
+void Deck::show_card() {
+	//if (!deck.empty()) {            //disabled for testing purposes
+		Card tmp = deck.front();
+		std::cout << deck.front().getpip() << "\n";
+	//}
 }

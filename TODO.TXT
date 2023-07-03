@@ -1,6 +1,17 @@
 1) Make deck (vector); DONE(created a class with a vector instead)
 2) Make deck creation and reshuffle functions; DONE 
-3) Make player (class that contains deck);
-4) Make stand, hit (this step includes transitioning of cards from deck to hand);
-5) Make value calculation (win condition);
-6) Make dealer (takes cards when his score is less than 17, then stops. Dealer inherits Player);
+3) Make player; DONE
+4) Make stand, hit (this step includes transitioning of cards from deck to hand); DONE
+5) Make score calculation; DONE
+6) Make dealer (takes cards when his score is less than 17, then stops. Dealer inherits Player);DONE
+7) Combine Dealer and Player in Game; IN PROGRESS
+8) Make a win codition (21 or who is closer);
+9) Make a console interface inside Game;
+9) Put Game inside main.
+
+TODO:
+Give a dealer logic. Maybe taking a card should be organized like
+if(dealer.logic())
+{
+dealer.hit(test.draw());
+}

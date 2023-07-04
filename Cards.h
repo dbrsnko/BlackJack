@@ -15,6 +15,7 @@ enum pips {
 	K = 10,
 	A = 11  
 };
+
 enum suits {
 	HEARTS,
 	DIAMONDS,
@@ -25,14 +26,13 @@ enum suits {
 class Card;
 class Card {
 private:
-	int _suit; 
-	int _pip; 
+	suits _suit; 
+	pips _pip; 
 public:
 	Card();
-	Card(int pip, int suit);
-	int getsuit();
-	int getpip();
-	
+	Card(pips pip, suits suit);
+	suits getsuit();
+	pips getpip();
 
 };
 

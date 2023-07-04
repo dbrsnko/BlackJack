@@ -5,9 +5,12 @@
 class Player {
 private:
 	std::vector<Card> hand;
+	bool stand_status = 0;
 public:
 	Player();
-	void hit(Card card);
+	pips hit(Card card);
 	void stand();
 	int getscore();
+	bool getstand_status();
+	void clear(); //clear hand
 };

@@ -1,19 +1,19 @@
 #include "Cards.h"
 #include <iostream>
 
-Card::Card(int pip, int suit) {
-	_suit = suit;
+Card::Card(pips pip, suits suit) {
 	_pip = pip;
+	_suit = suit;
 };
 Card::Card() {
-	_suit = 0;
-	_pip = 0;
+	_pip = A;
+	_suit = SPADES;
 };
 
-int Card::getpip() {
+pips Card::getpip() {
 	return _pip;
 }
-int Card::getsuit() {
+suits Card::getsuit() {
 	return _suit;
 }
 

@@ -3,14 +3,16 @@
 #include "Player.h"
 #include "Deck.h"
 
-void Player::hit(Card card) {   //hit a card, return a player`s score
-		hand.push_back(card);	//it takes card as a parameter so there is no need to make a pass by reference
-		std::sort(hand.begin(), hand.end(), [](Card a, Card b){return a.getpip() < b.getpip();}); //sort from lowest pip (A is considered 11)
-	
+pips Player::hit(Card card) {   //hit a card, return a player`s score
+	if (!stand_status) { 
+		hand.push_back(card);
+		std::sort(hand.begin(), hand.end(), [](Card a, Card b) {return a.getpip() < b.getpip(); }); //sort from lowest pip (A is considered 11)
+		return card.getpip();
+	}
 	
 }
 void Player::stand() {
-
+	stand_status = 1;
 }
 Player::Player() {
 
@@ -28,3 +30,10 @@ int Player::getscore() {
 	}
 	return score;
 };
+void Player::clear() {
+	hand.clear();
+	stand_status = 0;
+}
+bool Player::getstand_status() {
+	return stand_status;
+}

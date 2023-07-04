@@ -4,14 +4,25 @@
 4) Make stand, hit (this step includes transitioning of cards from deck to hand); DONE
 5) Make score calculation; DONE
 6) Make dealer (takes cards when his score is less than 17, then stops. Dealer inherits Player);DONE
-7) Combine Dealer and Player in Game; IN PROGRESS
-8) Make a win codition (21 or who is closer);
-9) Make a console interface inside Game;
-9) Put Game inside main.
+7) Combine Dealer and Player in Game; DONE
+8) Make a win codition (21 or who is closer. If someone busts he loses; If both the dealer and player bust, the player loses); IN PROGRESS
+9) Make a console interface inside Game; IN PROGRESS
+10) Put Game inside main. DONE
 
 TODO:
-Give a dealer logic. Maybe taking a card should be organized like
-if(dealer.logic())
+Rename game's "begin" to something that fits better (or should I?)
+Create a win_condition inside game 
+Create enum transformation for pips and suits inside cards.h IN PROGRESS
+inline const char* ToString(OS_type v)
 {
-dealer.hit(test.draw());
+    switch (v)
+    {
+        case Linux:   return "Linux";
+        case Apple:   return "Apple";
+        case Windows: return "Windows";
+        default:      return "[Unknown OS_type]";
+    }
 }
+Show dealer and player's hand (enum transformation for that)
+Show a card that you hit (enum transformation for that)
+ 

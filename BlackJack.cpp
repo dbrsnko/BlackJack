@@ -14,19 +14,11 @@ int main()
     Deck test;
     Player player;
     Dealer dealer;
+    Game game;
     //test.show_card();
     //test.draw().getpip();
     //std::cout << player.getscore() << "\n";
-    for (int i = 0; i < 52; i++) {
-      //  player.hit(test.draw());
-      // std::cout << player.getscore() << "\n";
-
-        if (dealer.logic())
-        {
-            dealer.hit(test.draw());
-            std::cout << dealer.getscore() << "\n";
-        }
-    }
+    game.begin();
     //test.show_card();
     //test.draw().getpip();
   /* for (int i = 0; i<52; i++)

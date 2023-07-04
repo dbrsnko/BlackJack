@@ -65,8 +65,8 @@ Card ace_spades(A, SPADES);
 
 
 Deck::Deck() {
-	this->fill();
-	this->reshuffle();
+	fill();
+	reshuffle();
 }
 
 void Deck::fill() {
@@ -133,15 +133,19 @@ void Deck::reshuffle() {
 	//might be a better option creating rd outside
 	//of function and passing it as a value
 }
-Card Deck::draw() {
+Card Deck::draw() { // DO NOT MAKE A DRAW IF CARD IS NOT SUPPOSED TO BE REMOVED FROM A DECK 
 	Card tmp = deck.front();
 	deck.erase(deck.begin());
 	return tmp;
 }
 
-void Deck::show_card() {
-	//if (!deck.empty()) {            //disabled for testing purposes
+Card Deck::show_card() {
+	if (!deck.empty()) {
 		Card tmp = deck.front();
-		std::cout << deck.front().getpip() << "\n";
-	//}
+		return tmp;
+	}
+	else throw std::out_of_range("deck is empty");
+}
+int Deck::getsize() {
+	return deck.size();
 }

@@ -18,7 +18,9 @@ int main()
     //test.show_card();
     //test.draw().getpip();
     //std::cout << player.getscore() << "\n";
+    
     game.begin();
+
     //test.show_card();
     //test.draw().getpip();
   /* for (int i = 0; i<52; i++)

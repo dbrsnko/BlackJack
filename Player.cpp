@@ -25,8 +25,8 @@ int Player::getscore() {
 				score += 11;
 			else score += 1;
 		else
-			score += hand[i].getpip();
-		//std::cout << "+"<< hand[i].getpip() <<"\n";
+			score += hand[i].getvalue();
+		
 	}
 	return score;
 };
@@ -37,3 +37,13 @@ void Player::clear() {
 bool Player::getstand_status() {
 	return stand_status;
 }
+void Player::printhand() {
+	bool counter = 0;
+	for (int i = 0; i < hand.size(); i++) {
+		if (counter > 0)
+			std::cout << ", ";
+		std::cout << ToString(hand[i].getpip());
+		counter++;
+	}
+	std::cout << "\n";
+};

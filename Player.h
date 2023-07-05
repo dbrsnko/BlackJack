@@ -12,5 +12,6 @@ public:
 	void stand();
 	int getscore();
 	bool getstand_status();
+	void printhand(); //print card pips to console
 	void clear(); //clear hand
 };

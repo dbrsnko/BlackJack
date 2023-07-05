@@ -1,10 +1,5 @@
 ﻿  BlackJack.cpp
-  Cards.cpp
-  Dealer.cpp
-  Deck.cpp
-C:\Users\denis\VisualStudioProjects\borysenko\BlackJack\Deck.cpp(150,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   Game.cpp
-  Player.cpp
   Generating Code...
-C:\Users\denis\VisualStudioProjects\borysenko\BlackJack\Player.cpp(13): warning C4715: 'Player::hit': not all control paths return a value
+C:\Users\denis\VisualStudioProjects\borysenko\BlackJack\Game.cpp(35): warning C4715: 'Game::win_condition': not all control paths return a value
   BlackJack.vcxproj -> C:\Users\denis\VisualStudioProjects\borysenko\BlackJack\x64\Debug\BlackJack.exe

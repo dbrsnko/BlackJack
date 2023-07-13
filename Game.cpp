@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "Dealer.h"
 
-result Game::begin() {
+result Game::start() {
 
     deck.fill();
     deck.reshuffle();
@@ -12,33 +12,50 @@ result Game::begin() {
     result result=NONE;
     player.hit(deck.draw());
     for (int i = 0; i < deck.getsize(); i++) {
-      //  if (result == NONE)
+        if (result == NONE) {
             system("cls");
             dealer_turn();
             player_turn();
-            result=win_condition(player.getscore(), dealer.getscore(), player.getstand_status(), dealer.getstand_status());
-            
-      //  else
-           // return result;
+            if ((dealer.getstand_status() && player.getstand_status())||dealer.getscore()>21||player.getscore()>21)
+                result = win_condition(player.getscore(), dealer.getscore());
+            if (result != NONE)
+                break;
+        }
     }
-	return NONE;
+    system("cls");
+    std::cout << ToString(result)<<"!\n";
+    std::cout << "Dealer's score is: " << dealer.getscore() << "\n";
+    dealer.printhand();
+    std::cout << "Player's score is: " << player.getscore() << "\n";
+    player.printhand();
+	return result;
 }
 
-result Game::win_condition( int player_score, int dealer_score, bool player_stand, bool dealer_stand) {
-
+result Game::win_condition( int player_score, int dealer_score) {
+ 
     if (player_score > 21)
         return PLAYER_LOSE;
-    if (player_score == 21 && dealer_score == 21)
+    if (dealer_score > 21) //no need to check player score since it was done already
+        return PLAYER_WIN;
+    if (player_score == dealer_score)   
         return DRAW;
+    if (21 - player_score < 21 - dealer_score)
+        return PLAYER_WIN;
+    if (21 - player_score > 21 - dealer_score)
+        return PLAYER_LOSE;
+     
+
        
+    return NONE;
     
 }
 
 int Game::dealer_turn() {
-
-    if (dealer.logic()) 
-        dealer.hit(deck.draw());
-    else dealer.stand();
+    if (!dealer.getstand_status()) {
+        if (dealer.logic())
+            dealer.hit(deck.draw());
+        else dealer.stand();
+    }
     std::cout << "Dealer's score is: " << dealer.getscore() << "\n";
     dealer.printhand();
     return dealer.getscore();
@@ -46,8 +63,6 @@ int Game::dealer_turn() {
 int Game::player_turn() {
     std::cout << "Player's score is: " << player.getscore() << "\n";
     player.printhand();
-    if (player.getscore() >= 21)
-        player.stand();
     if (!player.getstand_status()) {
         std::cout << "Make a hit? 1-Yes, 2-No " << "\n";
         char input='0';

@@ -7,6 +7,8 @@ pips Player::hit(Card card) {   //hit a card, return a player`s score
 	if (!stand_status) { 
 		hand.push_back(card);
 		std::sort(hand.begin(), hand.end(), [](Card a, Card b) {return a.getpip() < b.getpip(); }); //sort from lowest pip (A is considered 11)
+		if (getscore() >= 21)
+			stand();
 		return card.getpip();
 	}
 	

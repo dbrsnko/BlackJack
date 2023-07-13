@@ -1,5 +1,2 @@
 ﻿  BlackJack.cpp
-  Game.cpp
-  Generating Code...
-C:\Users\denis\VisualStudioProjects\borysenko\BlackJack\Game.cpp(35): warning C4715: 'Game::win_condition': not all control paths return a value
   BlackJack.vcxproj -> C:\Users\denis\VisualStudioProjects\borysenko\BlackJack\x64\Debug\BlackJack.exe

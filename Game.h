@@ -27,7 +27,7 @@ private:
     Dealer dealer;
     int dealer_turn(); //return score 
     int player_turn(); //return score
-    result win_condition(int player_score, int dealer_score);
+    result win_condition(short unsigned int player_score, short unsigned int dealer_score);
 public:
     result start();
     

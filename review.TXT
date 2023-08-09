@@ -1,0 +1,18 @@
+std map
+std unordered map //for getvalue
+хеш таблиці
+замінити вектор на ліст
+перебрати усі інклюди
+яка різниця по розміру (з урахуванням архітектури)
+struct x {
+   char* b;
+  short c;
+};
+struct x {
+  
+  char* b;
+  short c;
+  int a;
+};
+wsl 2 віртуалка
+tostring переробити у метод класа

@@ -31,7 +31,7 @@ result Game::start() {
 	return result;
 }
 
-result Game::win_condition( int player_score, int dealer_score) {
+result Game::win_condition(short unsigned int player_score, short unsigned int dealer_score) {
  
     if (player_score > 21)
         return PLAYER_LOSE;

@@ -1,5 +1,4 @@
 #include "Cards.h"
-#include <iostream>
 
 Card::Card(pips pip, suits suit) {
 	_pip = pip;

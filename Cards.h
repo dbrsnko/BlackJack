@@ -1,6 +1,7 @@
 #pragma once
+#include <string>
 
-enum pips {
+enum class Pips {
 	TWO,
 	THREE,
 	FOUR,
@@ -15,27 +16,8 @@ enum pips {
 	K,
 	A 
 };
-inline const char* ToString(pips v)
-{
-	switch (v)
-	{
-	case TWO:   return "TWO";
-	case THREE:   return "THREE";
-	case FOUR: return "FOUR";
-	case FIVE: return "FIVE";
-	case SIX: return "SIX";
-	case SEVEN: return "SEVEN";
-	case EIGHT: return "EIGHT";
-	case NINE: return "NINE";
-	case TEN: return "TEN";
-	case J: return "J";
-	case Q: return "Q";
-	case K: return "K";
-	case A: return "A";
-	default:      return "[Unknown pip]";
-	}
-}
-enum suits {
+std::string ToString(Pips v);
+enum class Suits {
 	HEARTS,
 	DIAMONDS,
 	CLUBS,
@@ -45,14 +27,18 @@ enum suits {
 class Card;
 class Card {
 private:
-	suits _suit; 
-	pips _pip; 
+	Suits _suit;
+	Pips _pip;
+	//in case if graphics would be added:
+	//place a func here somewhere that assigns card's skin
+	//based on a _suit and _pip
+	//also call it from constructor
 public:
 	Card();
-	Card(pips pip, suits suit);
-	suits getsuit();
-	pips getpip();
-	int getvalue();
+	Card(Pips pip, Suits suit);
+	Suits getsuit();
+	Pips getpip();
+	unsigned short int getvalue();
 
 };
 

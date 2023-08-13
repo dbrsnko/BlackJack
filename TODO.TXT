@@ -1,11 +1,6 @@
-1) Make deck (vector); DONE(created a class with a vector instead)
-2) Make deck creation and reshuffle functions; DONE 
-3) Make player; DONE
-4) Make stand, hit (this step includes transitioning of cards from deck to hand); DONE
-5) Make score calculation; DONE
-6) Make dealer (takes cards when his score is less than 17, then stops. Dealer inherits Player);DONE
-7) Combine Dealer and Player in Game; DONE
-8) Make a win codition (21 or who is closer. If only one busts he loses; If both the dealer and player bust, the player loses); DONE
-9) Make a console interface inside Game; DONE
-10) Put Game inside main. DONE
- 
+1) Add unordered map instead of switch case everywhere DONE
+2) Add enum class instead of regular enum DONE
+3) Make sure includes make sense DONE
+4) Move inline functions to .cpp (and remove inline) DONE
+5) Change deck's vector to linked list (or circular linked list) DONE: Vector use is optimised instead
+6) Automate deck creation process DONE

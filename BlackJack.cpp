@@ -1,10 +1,4 @@
-#include <iostream>
-#include <vector>
-#include "Deck.h"
-#include "Player.h"
 #include "Game.h"
-#include "Dealer.h"
-
 
 int main()
 {
@@ -16,7 +10,7 @@ int main()
     bool play=1;
     while (play) {
         game.start();
-        std::cout << "Do you wish to play again?\n1-Yes, 2-No " << "\n";
+        std::cout << "Do you wish to play again?\n1-Yes, 2-No\n";
         char input = '0';
         while (1) {
             std::cin >> input;
@@ -28,7 +22,7 @@ int main()
                 play=0;
                 break;
             default:
-                std::cout << "Wrong input " << "\n";
+                std::cout << "Wrong input\n";
             }
             if (input == '1' || input == '2')
                 break;

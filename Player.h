@@ -1,16 +1,16 @@
 #pragma once
-#include <vector>
 #include "Cards.h"
+#include <vector>
+
 
 class Player {
 private:
 	std::vector<Card> hand;
 	bool stand_status = 0;
 public:
-	Player();
-	pips hit(Card card);
+	Pips hit(Card card);
 	void stand();
-	int getscore();
+	short unsigned int getscore();
 	bool getstand_status();
 	void printhand(); //print card pips to console
 	void clear(); //clear hand

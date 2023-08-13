@@ -1,24 +1,34 @@
-#include <iostream>
 #include "Game.h"
-#include "Player.h"
-#include "Dealer.h"
+#include <unordered_map>
 
-result Game::start() {
+std::string ToString(Result v)
+{
+    std::unordered_map<Result, std::string> u = {
+        {Result::PLAYER_WIN, "PLAYER WIN"},
+        {Result::PLAYER_LOSE, "PLAYER LOSE"},
+        {Result::DRAW, "DRAW"},
+        {Result::NONE, "NONE"}
+    };
+    return u[v];
+    
+}
+
+Result Game::start() {
 
     deck.fill();
     deck.reshuffle();
     player.clear();
     dealer.clear();
-    result result=NONE;
+    Result result=Result::NONE;
     player.hit(deck.draw());
     for (int i = 0; i < deck.getsize(); i++) {
-        if (result == NONE) {
+        if (result == Result::NONE) {
             system("cls");
             dealer_turn();
             player_turn();
             if ((dealer.getstand_status() && player.getstand_status())||dealer.getscore()>21||player.getscore()>21)
                 result = win_condition(player.getscore(), dealer.getscore());
-            if (result != NONE)
+            if (result != Result::NONE)
                 break;
         }
     }
@@ -31,26 +41,26 @@ result Game::start() {
 	return result;
 }
 
-result Game::win_condition(short unsigned int player_score, short unsigned int dealer_score) {
+Result Game::win_condition(short unsigned int player_score, short unsigned int dealer_score) {
  
     if (player_score > 21)
-        return PLAYER_LOSE;
+        return Result::PLAYER_LOSE;
     if (dealer_score > 21) //no need to check player score since it was done already
-        return PLAYER_WIN;
+        return Result::PLAYER_WIN;
     if (player_score == dealer_score)   
-        return DRAW;
+        return Result::DRAW;
     if (21 - player_score < 21 - dealer_score)
-        return PLAYER_WIN;
+        return Result::PLAYER_WIN;
     if (21 - player_score > 21 - dealer_score)
-        return PLAYER_LOSE;
+        return Result::PLAYER_LOSE;
      
 
        
-    return NONE;
+    return Result::NONE;
     
 }
 
-int Game::dealer_turn() {
+short unsigned int Game::dealer_turn() {
     if (!dealer.getstand_status()) {
         if (dealer.logic())
             dealer.hit(deck.draw());
@@ -60,7 +70,7 @@ int Game::dealer_turn() {
     dealer.printhand();
     return dealer.getscore();
 }
-int Game::player_turn() {
+short unsigned int Game::player_turn() {
     std::cout << "Player's score is: " << player.getscore() << "\n";
     player.printhand();
     if (!player.getstand_status()) {
